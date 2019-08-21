@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/image/hk logo jpg.jpg" alt="hk logo jpg">
+  <ion-button expand="full" shape="round" color="light" padding>Custom Button</ion-button>
+  <br>
+  <br>
+
+  <input type="text" placeholder="Login">
+  <input type="password" placeholder="Password">
+
+  <button color="light" ion-button class="login" (click)="login()">LOGIN</button>
+  <ion-datetime displayFormat="hh:mm a" [(ngModel)]="myDate"></ion-datetime>
+
+  <ion-button expand="block" (click)="scheduleNotification()">Schedule</ion-button>
+  <ion-button expand="block" (click)="recurringNotification()">Every Minute</ion-button>
+  <ion-button expand="block" (click)="repeatDaily()">Daily</ion-button>
+  <ion-button expand="block" (click)="getAll()">Get All</ion-button>
+  <br>
+  <ion-button expand="block" (click)="getLocation()">Get Location</ion-button>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=Your_API_Key"></script>
+  
+  <ion-list>
+    <ion-item *ngFor="let n of scheduled">
+      <ion-label text-wrap>
+        {{ n.id }} - {{ n.title }}
+        <p>Trigger: {{ n.trigger | json }} </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    Tes aja
+  </ion-toolbar>
+</ion-footer>
